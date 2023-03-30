@@ -1,0 +1,166 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+    <div class="container-fluid main-container">
+      <a class="navbar-brand text-light" href="#">AngularTestApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2  mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/register">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Caraousel -->
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://picsum.photos/id/3/200/300" class="d-block w-100" alt="Image1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/id/27/200/300" class="d-block w-100" alt="Image2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/id/37/200/300" class="d-block w-100" alt="Image3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Card -->
+
+  <div class="container">
+    <div class="row">
+        <h1 class="text-center">Our Services</h1>
+        <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="https://picsum.photos/id/7/200/300" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="https://picsum.photos/id/7/200/300" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://picsum.photos/id/7/200/300" class="card-img-top" alt="">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                </div>
+    </div>
+  </div>
+
+
+  <div class="container mt-4  mb-5 data-container">
+    <div class="row">
+
+         <div class="col-md-12">
+          <h1 class="text-center table-header">Registered User Information</h1>
+          <p-table [value]="tabledata" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>UserName</th>
+                    <th>Password</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-users>
+                <tr>
+                    <td>{{ users.id }}</td>
+                    <td>{{ users.name }}</td>
+                    <td>{{ users.email }}</td>
+                    <td>{{ users.username }}</td>
+                    <td>{{ users.password }}</td>
+                    <td>{{ users.age }}</td>
+                    <td><button class="btn btn-danger mr-3" (click)="deleteUser(users.id)">Delete</button><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+         </div>
+
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" style="z-index: 1000000;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary text-light">
+        <h5 class="modal-title " id="exampleModalLabel">Edit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="id" class="form-label">Id</label>
+          <input type="text"  disabled class="form-control" id="id">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text"   class="form-control" id="name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text"   class="form-control" id="email">
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">UserName</label>
+          <input type="text"   class="form-control" id="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="text"   class="form-control" id="password">
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="text"   class="form-control" id="age">
+        </div>
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
